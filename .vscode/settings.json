@@ -15,7 +15,7 @@
   "editor.renderWhitespace": "boundary",
   "editor.renderControlCharacters": true,
   "editor.lineNumbers": "off",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "vsicons.dontShowNewVersionMessage": true,
   "workbench.iconTheme": "vscode-icons",
   "workbench.activityBar.visible": true,

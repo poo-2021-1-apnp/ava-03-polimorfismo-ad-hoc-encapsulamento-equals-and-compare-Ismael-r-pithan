@@ -1,3 +1,10 @@
+import java.util.Scanner;
+
+import modelo.Dinheiro;
+import modelo.Veiculo;
+
+
+
 class App {
   public static void main(String[] args) {
 
@@ -9,5 +16,51 @@ class App {
 
     Dinheiro bufunfa = new Dinheiro(1, 1);
     bufunfa.imprimir(); // R$ 1,01
+
+    Dinheiro d3 = new Dinheiro(3, 45);
+    System.out.println(d3.getReais() == 3);
+    System.out.println(d3.getCentavos() == 45);
+
+    Dinheiro d4 = new Dinheiro(200);
+    System.out.println(d4.getReais() == 200);
+    System.out.println(d4.getCentavos() == 0);
+
+    Dinheiro d5 = new Dinheiro("R$ 345,75");
+    System.out.println(d5.getReais() == 345);
+    System.out.println(d5.getCentavos() == 75);
+
+    Dinheiro d6 = new Dinheiro("R$ 1000000,11");
+    System.out.println(d6.getReais() == 1000000);
+    System.out.println(d6.getCentavos() == 11);
+
+    Dinheiro d7 = new Dinheiro("R$ 2567,89");
+    System.out.println(d7.getReais() == 2567);
+    System.out.println(d7.getCentavos() == 89);
+
+    Dinheiro d8 = new Dinheiro(9.75);
+    System.out.println(d8.getReais() == 9);
+    System.out.println(d8.getCentavos() == 75);
+
+    Dinheiro d9 = new Dinheiro(17.569); // é truncado nas duas casas, não arredondado!
+    System.out.println(d9.getReais() == 17);
+    System.out.println(d9.getCentavos() == 56);
+    System.out.println("-----------------------");
+
+    d3.soma(d4);
+    System.out.println(d3.getReais() == 203);
+    System.out.println(d3.getCentavos() == 45);
+
+    d5.soma(100);
+    System.out.println(d5.getReais() == 445);
+    System.out.println(d5.getCentavos() == 75);
+
+
+    d6.soma(1.90);
+    System.out.println(d6.getReais() == 1000002);
+    System.out.println(d6.getCentavos() == 01);
+
+    d7.soma("R$ 998817,86986");
+    System.out.println(d7.getReais() == 1001385 ); // == 1001385
+    System.out.println(d7.getCentavos() == 75);
   }
 }
