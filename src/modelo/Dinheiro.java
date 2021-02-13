@@ -2,7 +2,7 @@ package modelo;
 import static java.lang.Integer.parseInt;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-public class Dinheiro {
+public class Dinheiro implements Comparable<Dinheiro> {
 
   private int centavos;
 
@@ -48,6 +48,25 @@ public void somar(Dinheiro r,Dinheiro c) {
 
 }
 
+public void soma(Dinheiro d) {
+  this.centavos += d.centavos;
+}
+
+public void soma(int i) {
+  this.centavos += i * 100;
+}
+
+public void soma(double d) {
+  this.centavos += d * 100;
+}
+
+public void soma(String din) {
+  String[] partes = din.split(" ");
+  String[] dinheiro = partes[1].split(",");
+  this.centavos += (parseInt(dinheiro[0]) * 100);
+  this.centavos += parseInt(dinheiro[1].substring(0, 2));
+
+}
 
   public void imprimir() { // Não é ilegal imprimir Dinheiro? 😏
     System.out.println(
@@ -55,24 +74,23 @@ public void somar(Dinheiro r,Dinheiro c) {
     );
   }
 
-public void soma(Dinheiro d) {
-  this.centavos += d.centavos;
+@Override
+public boolean equals(Object outroObjeto){
+  if(this == outroObjeto) return true;
+  if(null == outroObjeto) return false;
+  if(outroObjeto instanceof Dinheiro){
+    Dinheiro outroDinheiro = (Dinheiro) outroObjeto;
+    if(this.centavos == outroDinheiro.centavos) return true;
+  }
+  return false;
 }
 
-public void soma(int i) {
-  this.centavos += i*100;
-}
+@Override
+public int compareTo(Dinheiro o) {
 
-public void soma(double d) {
-  this.centavos += d*100;
-}
-
-public void soma(String din) {
-  String[] partes = din.split(" ");
-  String[] dinheiro = partes[1].split(",");
-  this.centavos += (parseInt(dinheiro[0]) * 100);
-  this.centavos += parseInt(dinheiro[1].substring(0,2));
-
+  if(this.centavos > o.centavos) return 1;
+  if(this.centavos < o.centavos) return -1;
+  return 0;
 }
 
 
