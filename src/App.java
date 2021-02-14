@@ -1,5 +1,6 @@
+import java.util.Arrays;
 import java.util.Scanner;
-
+import modelo.Data;
 import modelo.Dinheiro;
 import modelo.Veiculo;
 
@@ -7,7 +8,7 @@ import modelo.Veiculo;
 
 class App {
   public static void main(String[] args) {
-
+    /*
     Dinheiro d1 = new Dinheiro(2, 30);
     Dinheiro d2 = new Dinheiro(5, 80);
     d1.somar(d2);
@@ -36,7 +37,7 @@ class App {
     Dinheiro d7 = new Dinheiro("R$ 2567,89");
     System.out.println(d7.getReais() == 2567);
     System.out.println(d7.getCentavos() == 89);
-    /*
+
     Dinheiro d8 = new Dinheiro(9.75);
     System.out.println(d8.getReais() == 9);
     System.out.println(d8.getCentavos() == 75);
@@ -45,7 +46,7 @@ class App {
     System.out.println(d9.getReais() == 17);
     System.out.println(d9.getCentavos() == 56);
     System.out.println("-----------------------");
-    */
+
     d3.soma(d4);
     System.out.println(d3.getReais() == 203);
     System.out.println(d3.getCentavos() == 45);
@@ -98,5 +99,30 @@ class App {
     System.out.println(d17.compareTo(d19) == 0);
     System.out.println(d18.compareTo(d17) > 0);
 
-  }
+    Dinheiro[] dindin = { d12, d13, d14, d15, d16 };
+
+    // Classifique em ordem crescente através de java.util.Arrays
+    Arrays.sort(dindin);
+    System.out.println(dindin[0].equals(d14));
+    System.out.println(dindin[1].equals(d12));
+    System.out.println(dindin[2].equals(d12));
+    System.out.println(dindin[3].equals(d15));
+    System.out.println(dindin[4].equals(d13));
+    */
+    try {
+      Data dt = new Data("31/12/1996");
+      System.out.println(dt.getDia() + "/" + dt.getMes() + "/" + dt.getAno());
+    } catch (Exception e) {
+      System.err.println("Erro! Data invalida");
+    }
+    try {
+      Data dt1 = new Data(01,11,1990);
+      System.out.println(dt1.getDia()+"/"+dt1.getMes()+"/"+dt1.getAno());
+    } catch (Exception e) {
+      System.err.println("Erro! Data invalida");
+    }
+    Data d2 = new Data(01,11,1999);
+    Data d3 = new Data("01/11/1999");
+    System.out.println(d2.equals(d3));
+}
 }
