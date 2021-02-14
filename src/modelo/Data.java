@@ -1,6 +1,6 @@
 package modelo;
 
-public class Data {
+public class Data implements Comparable<Data>{
   private int dia;
   private int mes;
   private int ano;
@@ -43,5 +43,24 @@ public class Data {
         return true;
     }
     return false;
+  }
+
+  @Override
+  public int compareTo(Data dt) {
+
+    if (this.ano > dt.ano)
+      return 1;
+    if(this.mes > dt.mes)
+      return 1;
+    if(this.dia > dt.dia)
+      return 1;
+    if(this.ano < dt.ano)
+      return -1;
+    if(this.mes < dt.mes)
+      return -1;
+    if(this.dia < dt.dia){
+      return -1;
+    }
+    return 0;
   }
 }
