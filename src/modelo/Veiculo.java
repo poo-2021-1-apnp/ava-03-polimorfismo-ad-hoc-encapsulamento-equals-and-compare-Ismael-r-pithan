@@ -9,4 +9,18 @@ public class Veiculo {
     this.cilindrada = cilindrada;
   }
 
+  @Override
+  public boolean equals(Object outroObjeto) {
+    if (this == outroObjeto)
+      return true;
+    if (null == outroObjeto)
+      return false;
+    if (outroObjeto instanceof Veiculo) {
+      Veiculo outroVeiculo = (Veiculo) outroObjeto;
+      if (this.placa == outroVeiculo.placa)
+        return true;
+    }
+    return false;
+  }
+
 }

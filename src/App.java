@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Scanner;
 import modelo.Data;
 import modelo.Dinheiro;
 import modelo.Veiculo;
@@ -213,5 +212,12 @@ class App {
     System.out.println(dt11.compareTo(dt10) == 1);
     System.out.println(dt13.compareTo(dt9) == 1);
     System.out.println(dt9.compareTo(dt13) == -1);
+
+    System.out.println("----------------------------------------------");
+    System.out.println("Comportamento esperado equal Veiculo: ");
+    Veiculo v1 = new Veiculo("IWW7C89","Renault","Clio",150);
+    Veiculo v2 = new Veiculo("IWW7C89", "Renault", "Sandero", 250);
+
+    System.out.println(v1.equals(v2) == true);
 }
 }
